@@ -1,0 +1,24 @@
+﻿using GhasedakSms.Core.Enum;
+
+namespace GhasedakSms.Core.Dto
+{
+    public class SendOtpResponseDto
+    {
+        public string LineNumber { get; set; }
+        public string MessageBody { get; set; }
+        public List<Data> Items { get; set; }
+        public int Cost { get; set; }
+
+
+        public class Data
+        {
+            public string Receptor { get; set; }
+            public int Cost { get; set; }
+            public string MessageId { get; set; }
+            public long SendDate { get; set; }
+            public SendStatus Status { get; set; }
+            public string StatusDescription { get; set; }
+        }
+    }
+
+}
