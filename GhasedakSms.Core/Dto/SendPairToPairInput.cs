@@ -1,6 +1,6 @@
 ﻿namespace GhasedakSms.Core.Dto
 {
-    public class SendPairToPairSmsWebServiceCommand
+    public class SendPairToPairInput
     {
         public List<SendPairToPairSmsWebServiceDto> Items { get; set; }
         public bool Udh { get; set; }

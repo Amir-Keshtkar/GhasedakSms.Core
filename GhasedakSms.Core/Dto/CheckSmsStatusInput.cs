@@ -2,7 +2,7 @@
 
 namespace GhasedakSms.Core.Dto
 {
-    public class CheckSmsStatusQuery
+    public class CheckSmsStatusInput
     {
         public List<string> Ids { get; set; }
 

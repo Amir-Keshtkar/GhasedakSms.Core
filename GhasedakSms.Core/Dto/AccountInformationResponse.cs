@@ -1,6 +1,6 @@
 ﻿namespace GhasedakSms.Core.Dto
 {
-    public class AccountInformationApiResponseDto
+    public class AccountInformationResponse
     {
         public long Credit { get; set; }
         public DateTime ExpireDate { get; set; }

@@ -1,6 +1,6 @@
 ﻿namespace GhasedakSms.Core.Dto
 {
-    public class SendOtpSmsCommand
+    public class SendOldOtpInput
     {
         public DateTime? SendDate { get; set; }
         public List<SendOtpReceptorDto> Receptors { get; set; }

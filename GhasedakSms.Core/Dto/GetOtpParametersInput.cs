@@ -1,6 +1,6 @@
 ﻿namespace GhasedakSms.Core.Dto
 {
-    public class GetOtpTemplateParametersQuery
+    public class GetOtpParametersInput
     {
         public string TemplateName { get; set; }
     }

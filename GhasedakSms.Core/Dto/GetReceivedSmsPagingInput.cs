@@ -1,6 +1,6 @@
 ﻿namespace GhasedakSms.Core.Dto
 {
-    public class GetReceivedSmsPagingQuery
+    public class GetReceivedSmsPagingInput
     {
         public string LineNumber { get; set; }
         public bool IsRead { get; set; } = false;

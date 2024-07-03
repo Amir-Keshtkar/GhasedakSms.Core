@@ -2,7 +2,7 @@
 
 namespace GhasedakSms.Core.Dto
 {
-    public class SendOtpResponseDto
+    public class SendOtpResponse
     {
         public string LineNumber { get; set; }
         public string MessageBody { get; set; }

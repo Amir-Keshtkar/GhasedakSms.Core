@@ -21,7 +21,7 @@ namespace GhasedakSms.Core
             _client.DefaultRequestHeaders.Add("ApiKey", apiKey);
         }
 
-        public async Task<ResponseDto<List<SmsStatusResponseItems>>> CheckSmsStatus(CheckSmsStatusQuery query, CancellationToken cancellationToken = default)
+        public async Task<ResponseDto<List<SmsStatusResponseItems>>> CheckSmsStatus(CheckSmsStatusInput query, CancellationToken cancellationToken = default)
         {
             var queryString = Helper.BuildQueryString($"{_url}CheckSmsStatus", new Dictionary<string, string>
             {
@@ -58,7 +58,7 @@ namespace GhasedakSms.Core
             }
         }
 
-        public async Task<ResponseDto<AccountInformationApiResponseDto>> GetAccountInformation(CancellationToken cancellationToken = default)
+        public async Task<ResponseDto<AccountInformationResponse>> GetAccountInformation(CancellationToken cancellationToken = default)
         {
             HttpResponseMessage response;
             try
@@ -67,7 +67,7 @@ namespace GhasedakSms.Core
             }
             catch (WebException ex)
             {
-                return new ResponseDto<AccountInformationApiResponseDto>()
+                return new ResponseDto<AccountInformationResponse>()
                 {
                     IsSuccess = false,
                     Message = ex.Message,
@@ -76,7 +76,7 @@ namespace GhasedakSms.Core
             }
             if (response.IsSuccessStatusCode)
             {
-                var result = await response.Content.ReadFromJsonAsync<ResponseDto<AccountInformationApiResponseDto>>(cancellationToken: cancellationToken);
+                var result = await response.Content.ReadFromJsonAsync<ResponseDto<AccountInformationResponse>>(cancellationToken: cancellationToken);
                 return result;
             }
             else
@@ -84,7 +84,7 @@ namespace GhasedakSms.Core
                 try
                 {
                     var result = await response.Content.ReadFromJsonAsync<ResponseDto>(cancellationToken: cancellationToken);
-                    return new ResponseDto<AccountInformationApiResponseDto>()
+                    return new ResponseDto<AccountInformationResponse>()
                     {
                         IsSuccess = result.IsSuccess,
                         Message = result.Message,
@@ -92,7 +92,7 @@ namespace GhasedakSms.Core
                     };
                 }
                 catch { }
-                return new ResponseDto<AccountInformationApiResponseDto>
+                return new ResponseDto<AccountInformationResponse>
                 {
                     IsSuccess = false,
                     StatusCode = (int)response.StatusCode,
@@ -101,7 +101,7 @@ namespace GhasedakSms.Core
             }
         }
 
-        public async Task<ResponseDto<ReceivedSmsesResponse>> GetReceivedSmses(GetReceivedSmsQuery query, CancellationToken cancellationToken = default)
+        public async Task<ResponseDto<ReceivedSmsesResponse>> GetReceivedSmses(GetReceivedSmsInput query, CancellationToken cancellationToken = default)
         {
             var queryString = Helper.BuildQueryString($"{_url}GetReceivedSmses", new Dictionary<string, string>
             {
@@ -150,7 +150,7 @@ namespace GhasedakSms.Core
             }
         }
 
-        public async Task<ResponseDto<ReceivedSmsesPagingResponse>> GetReceivedSmsesPaging(GetReceivedSmsPagingQuery query, CancellationToken cancellationToken = default)
+        public async Task<ResponseDto<ReceivedSmsesPagingResponse>> GetReceivedSmsesPaging(GetReceivedSmsPagingInput query, CancellationToken cancellationToken = default)
         {
             var queryString = Helper.BuildQueryString($"{_url}GetReceivedSmsesPaging", new Dictionary<string, string>
             {
@@ -204,7 +204,7 @@ namespace GhasedakSms.Core
             }
         }
 
-        public async Task<ResponseDto<CheckOtpTemplateDto>> GetOtpTemplateParameters(GetOtpTemplateParametersQuery query, CancellationToken cancellationToken = default)
+        public async Task<ResponseDto<CheckOtpTemplateResponse>> GetOtpParameters(GetOtpParametersInput query, CancellationToken cancellationToken = default)
         {
             var queryString = Helper.BuildQueryString($"{_url}GetOtpTemplateParameters", new Dictionary<string, string>
             {
@@ -217,7 +217,7 @@ namespace GhasedakSms.Core
             }
             catch (WebException ex)
             {
-                return new ResponseDto<CheckOtpTemplateDto>()
+                return new ResponseDto<CheckOtpTemplateResponse>()
                 {
                     IsSuccess = false,
                     Message = ex.Message,
@@ -226,7 +226,7 @@ namespace GhasedakSms.Core
             }
             if (response.IsSuccessStatusCode)
             {
-                var result = await response.Content.ReadFromJsonAsync<ResponseDto<CheckOtpTemplateDto>>(cancellationToken: cancellationToken);
+                var result = await response.Content.ReadFromJsonAsync<ResponseDto<CheckOtpTemplateResponse>>(cancellationToken: cancellationToken);
                 return result;
             }
             else
@@ -234,7 +234,7 @@ namespace GhasedakSms.Core
                 try
                 {
                     var result = await response.Content.ReadFromJsonAsync<ResponseDto>(cancellationToken: cancellationToken);
-                    return new ResponseDto<CheckOtpTemplateDto>()
+                    return new ResponseDto<CheckOtpTemplateResponse>()
                     {
                         IsSuccess = result.IsSuccess,
                         Message = result.Message,
@@ -242,7 +242,7 @@ namespace GhasedakSms.Core
                     };
                 }
                 catch { }
-                return new ResponseDto<CheckOtpTemplateDto>
+                return new ResponseDto<CheckOtpTemplateResponse>
                 {
                     IsSuccess = false,
                     StatusCode = (int)response.StatusCode,
@@ -251,7 +251,8 @@ namespace GhasedakSms.Core
             }
 
         }
-        public async Task<ResponseDto<SendSingleResponseDto>> SendSingleSMS(SendSingleSmsWebServiceCommand command, CancellationToken cancellationToken = default)
+
+        public async Task<ResponseDto<SendSingleResponse>> SendSingleSMS(SendSingleSmsInput command, CancellationToken cancellationToken = default)
         {
             HttpResponseMessage response;
             try
@@ -260,7 +261,7 @@ namespace GhasedakSms.Core
             }
             catch (WebException ex)
             {
-                return new ResponseDto<SendSingleResponseDto>()
+                return new ResponseDto<SendSingleResponse>()
                 {
                     IsSuccess = false,
                     Message = ex.Message,
@@ -269,7 +270,7 @@ namespace GhasedakSms.Core
             }
             if (response.IsSuccessStatusCode)
             {
-                var result = await response.Content.ReadFromJsonAsync<ResponseDto<SendSingleResponseDto>>(cancellationToken: cancellationToken);
+                var result = await response.Content.ReadFromJsonAsync<ResponseDto<SendSingleResponse>>(cancellationToken: cancellationToken);
                 return result;
             }
             else
@@ -277,7 +278,7 @@ namespace GhasedakSms.Core
                 try
                 {
                     var result = await response.Content.ReadFromJsonAsync<ResponseDto>(cancellationToken: cancellationToken);
-                    return new ResponseDto<SendSingleResponseDto>()
+                    return new ResponseDto<SendSingleResponse>()
                     {
                         IsSuccess = result.IsSuccess,
                         Message = result.Message,
@@ -285,7 +286,7 @@ namespace GhasedakSms.Core
                     };
                 }
                 catch { }
-                return new ResponseDto<SendSingleResponseDto>
+                return new ResponseDto<SendSingleResponse>
                 {
                     IsSuccess = false,
                     StatusCode = (int)response.StatusCode,
@@ -294,7 +295,7 @@ namespace GhasedakSms.Core
             }
         }
 
-        public async Task<ResponseDto<SendBulkResponse>> SendBulkSMS(SendBulkSmsWebServiceCommand command, CancellationToken cancellationToken = default)
+        public async Task<ResponseDto<SendBulkResponse>> SendBulkSMS(SendBulkInput command, CancellationToken cancellationToken = default)
         {
             HttpResponseMessage response;
             try
@@ -338,7 +339,7 @@ namespace GhasedakSms.Core
             }
         }
 
-        public async Task<ResponseDto<SendPairToPairResponse>> SendPairToPairSMS(SendPairToPairSmsWebServiceCommand command, CancellationToken cancellationToken = default)
+        public async Task<ResponseDto<SendPairToPairResponse>> SendPairToPairSMS(SendPairToPairInput command, CancellationToken cancellationToken = default)
         {
             HttpResponseMessage response;
             try
@@ -381,7 +382,7 @@ namespace GhasedakSms.Core
             }
         }
 
-        public async Task<ResponseDto<SendOtpResponseDto>> SendOtpSMSOld(SendOtpSmsCommand command, CancellationToken cancellationToken = default)
+        public async Task<ResponseDto<SendOtpResponse>> SendOtpSMSOld(SendOldOtpInput command, CancellationToken cancellationToken = default)
         {
             HttpResponseMessage response;
             try
@@ -390,7 +391,7 @@ namespace GhasedakSms.Core
             }
             catch (WebException ex)
             {
-                return new ResponseDto<SendOtpResponseDto>()
+                return new ResponseDto<SendOtpResponse>()
                 {
                     IsSuccess = false,
                     Message = ex.Message,
@@ -399,7 +400,7 @@ namespace GhasedakSms.Core
             }
             if (response.IsSuccessStatusCode)
             {
-                var result = await response.Content.ReadFromJsonAsync<ResponseDto<SendOtpResponseDto>>(cancellationToken: cancellationToken);
+                var result = await response.Content.ReadFromJsonAsync<ResponseDto<SendOtpResponse>>(cancellationToken: cancellationToken);
                 return result;
             }
             else
@@ -407,7 +408,7 @@ namespace GhasedakSms.Core
                 try
                 {
                     var result = await response.Content.ReadFromJsonAsync<ResponseDto>(cancellationToken: cancellationToken);
-                    return new ResponseDto<SendOtpResponseDto>()
+                    return new ResponseDto<SendOtpResponse>()
                     {
                         IsSuccess = result.IsSuccess,
                         Message = result.Message,
@@ -415,7 +416,7 @@ namespace GhasedakSms.Core
                     };
                 }
                 catch { }
-                return new ResponseDto<SendOtpResponseDto>
+                return new ResponseDto<SendOtpResponse>
                 {
                     IsSuccess = false,
                     StatusCode = (int)response.StatusCode,
@@ -424,7 +425,7 @@ namespace GhasedakSms.Core
             }
         }
 
-        public async Task<ResponseDto<SendOtpResponseDto>> SendOtpSMS(SendNewOtpSmsCommand command, CancellationToken cancellationToken = default)
+        public async Task<ResponseDto<SendOtpResponse>> SendOtpSMS(SendOtpInput command, CancellationToken cancellationToken = default)
         {
             HttpResponseMessage response;
             try
@@ -433,7 +434,7 @@ namespace GhasedakSms.Core
             }
             catch (WebException ex)
             {
-                return new ResponseDto<SendOtpResponseDto>()
+                return new ResponseDto<SendOtpResponse>()
                 {
                     IsSuccess = false,
                     Message = ex.Message,
@@ -443,7 +444,7 @@ namespace GhasedakSms.Core
 
             if (response.IsSuccessStatusCode)
             {
-                var result = await response.Content.ReadFromJsonAsync<ResponseDto<SendOtpResponseDto>>(cancellationToken: cancellationToken);
+                var result = await response.Content.ReadFromJsonAsync<ResponseDto<SendOtpResponse>>(cancellationToken: cancellationToken);
                 return result;
             }
             else
@@ -451,7 +452,7 @@ namespace GhasedakSms.Core
                 try
                 {
                     var result = await response.Content.ReadFromJsonAsync<ResponseDto>(cancellationToken: cancellationToken);
-                    return new ResponseDto<SendOtpResponseDto>()
+                    return new ResponseDto<SendOtpResponse>()
                     {
                         IsSuccess = result.IsSuccess,
                         Message = result.Message,
@@ -459,7 +460,7 @@ namespace GhasedakSms.Core
                     };
                 }
                 catch { }
-                return new ResponseDto<SendOtpResponseDto>
+                return new ResponseDto<SendOtpResponse>
                 {
                     IsSuccess = false,
                     StatusCode = (int)response.StatusCode,
