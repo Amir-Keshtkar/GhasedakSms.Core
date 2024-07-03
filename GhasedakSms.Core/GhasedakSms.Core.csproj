@@ -18,6 +18,7 @@
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<ApplicationIcon>ghasedak.ico</ApplicationIcon>
 		<PackageIcon>ghasedak.png</PackageIcon>
+		<FileVersion>1.0.1.0</FileVersion>
 	</PropertyGroup>
 
 	<ItemGroup>
