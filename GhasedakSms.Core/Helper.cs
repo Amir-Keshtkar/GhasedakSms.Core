@@ -9,11 +9,11 @@ namespace GhasedakSms.Core
             var queryString = QueryHelpers.AddQueryString(baseUrl, queryParams);
             if (arrayKey != null && arrayValues != null)
             {
-                arrayValues.Select(value => queryString = QueryHelpers.AddQueryString(queryString, arrayKey, value));
-                //foreach (var value in arrayValues)
-                //{
-                //    queryString = QueryHelpers.AddQueryString(queryString, arrayKey, value);
-                //}
+                //arrayValues.Select(value => queryString = QueryHelpers.AddQueryString(queryString, arrayKey, value));
+                foreach (var value in arrayValues)
+                {
+                    queryString = QueryHelpers.AddQueryString(queryString, arrayKey, value);
+                }
             }
             return queryString;
         }

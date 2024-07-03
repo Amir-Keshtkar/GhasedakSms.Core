@@ -2,7 +2,7 @@
 {
     public class SendNewOtpSmsCommand
     {
-        public long Date { get; set; }
+        public DateTime? SendDate { get; set; }
         public List<SendOtpReceptorDto> Receptors { get; set; }
         public string TemplateName { get; set; }
         public List<OtpInput> Inputs { get; set; }

@@ -10,7 +10,7 @@ namespace GhasedakSms.Core
 
         public Ghasedak(string apiKey)
         {
-            _url = "https://gw.ghasedak.me/Rest/api/v1/WebService/";
+            _url = "http://test.ghasedak.me:7000/Rest/api/v1/WebService/";
             _client = new HttpClient();
             _client.DefaultRequestHeaders.Accept.Clear();
             _client.DefaultRequestHeaders.Add("Accept", "application/json");
