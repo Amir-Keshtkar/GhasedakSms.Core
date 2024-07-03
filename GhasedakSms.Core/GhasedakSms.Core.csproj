@@ -11,6 +11,17 @@
 
 
 	<PropertyGroup>
+		<Version>1.0.1</Version>
+		<Authors>Amir Keshtkar</Authors>
+		<Company>Ghasedak</Company>
+		<PackageProjectUrl>https://beta.ghasedak.me</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/Amir-Keshtkar/GhasedakSms.Core</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<RepositoryBranch>main</RepositoryBranch>
+		<Copyright>Copyright © 2024 Amir Keshtkar</Copyright>
+	</PropertyGroup>
+
+	<PropertyGroup>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	</PropertyGroup>
 
@@ -18,17 +29,16 @@
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<ApplicationIcon>ghasedak.ico</ApplicationIcon>
 		<PackageIcon>ghasedak.png</PackageIcon>
-		<FileVersion>1.0.1.0</FileVersion>
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <Content Include="ghasedak.ico" />
+		<Content Include="ghasedak.ico" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<None Include="..\..\..\..\Downloads\ghasedak.png">
-		  <Pack>True</Pack>
-		  <PackagePath>\</PackagePath>
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
 		</None>
 		<None Include="..\README.md" Pack="true" PackagePath="\" />
 	</ItemGroup>
