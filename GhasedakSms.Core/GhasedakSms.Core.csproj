@@ -14,10 +14,10 @@
 		<Version>1.0.1</Version>
 		<Authors>Amir Keshtkar</Authors>
 		<Company>Ghasedak</Company>
-		<PackageProjectUrl>https://beta.ghasedak.me</PackageProjectUrl>
+		<PackageProjectUrl>https://github.com/Amir-Keshtkar/GhasedakSms.Core</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/Amir-Keshtkar/GhasedakSms.Core</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
-		<RepositoryBranch>main</RepositoryBranch>
+		<RepositoryBranch>master</RepositoryBranch>
 		<Copyright>Copyright © 2024 Amir Keshtkar</Copyright>
 	</PropertyGroup>
 
