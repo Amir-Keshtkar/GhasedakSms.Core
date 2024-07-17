@@ -50,12 +50,25 @@ namespace GhasedakSms.Core
             }
             else
             {
-                return new ResponseDto<List<SmsStatusResponseItems>>
+                try
                 {
-                    IsSuccess = false,
-                    StatusCode = (int)response.StatusCode,
-                    Message = response.ReasonPhrase
-                };
+                    var result = await response.Content.ReadFromJsonAsync<ResponseDto>(cancellationToken: cancellationToken);
+                    return new ResponseDto<List<SmsStatusResponseItems>>()
+                    {
+                        IsSuccess = result.IsSuccess,
+                        Message = result.Message,
+                        StatusCode = result.StatusCode
+                    };
+                }
+                catch
+                {
+                    return new ResponseDto<List<SmsStatusResponseItems>>
+                    {
+                        IsSuccess = false,
+                        StatusCode = (int)response.StatusCode,
+                        Message = response.ReasonPhrase
+                    };
+                }
             }
         }
 
@@ -92,13 +105,15 @@ namespace GhasedakSms.Core
                         StatusCode = result.StatusCode
                     };
                 }
-                catch { }
-                return new ResponseDto<AccountInformationResponse>
+                catch
                 {
-                    IsSuccess = false,
-                    StatusCode = (int)response.StatusCode,
-                    Message = response.ReasonPhrase
-                };
+                    return new ResponseDto<AccountInformationResponse>
+                    {
+                        IsSuccess = false,
+                        StatusCode = (int)response.StatusCode,
+                        Message = response.ReasonPhrase
+                    };
+                }
             }
         }
 
@@ -140,14 +155,15 @@ namespace GhasedakSms.Core
                         Message = result.Message
                     };
                 }
-                catch { }
-
-                return new ResponseDto<ReceivedSmsesResponse>
+                catch
                 {
-                    IsSuccess = false,
-                    StatusCode = (int)response.StatusCode,
-                    Message = response.ReasonPhrase
-                };
+                    return new ResponseDto<ReceivedSmsesResponse>
+                    {
+                        IsSuccess = false,
+                        StatusCode = (int)response.StatusCode,
+                        Message = response.ReasonPhrase
+                    };
+                }
             }
         }
 
@@ -194,14 +210,15 @@ namespace GhasedakSms.Core
                         Message = result.Message
                     };
                 }
-                catch { }
-
-                return new ResponseDto<ReceivedSmsesPagingResponse>
+                catch
                 {
-                    IsSuccess = false,
-                    StatusCode = (int)response.StatusCode,
-                    Message = response.ReasonPhrase
-                };
+                    return new ResponseDto<ReceivedSmsesPagingResponse>
+                    {
+                        IsSuccess = false,
+                        StatusCode = (int)response.StatusCode,
+                        Message = response.ReasonPhrase
+                    };
+                }
             }
         }
 
@@ -242,13 +259,15 @@ namespace GhasedakSms.Core
                         StatusCode = result.StatusCode
                     };
                 }
-                catch { }
-                return new ResponseDto<CheckOtpTemplateResponse>
+                catch
                 {
-                    IsSuccess = false,
-                    StatusCode = (int)response.StatusCode,
-                    Message = response.ReasonPhrase
-                };
+                    return new ResponseDto<CheckOtpTemplateResponse>
+                    {
+                        IsSuccess = false,
+                        StatusCode = (int)response.StatusCode,
+                        Message = response.ReasonPhrase
+                    };
+                }
             }
 
         }
@@ -286,13 +305,15 @@ namespace GhasedakSms.Core
                         StatusCode = result.StatusCode
                     };
                 }
-                catch { }
-                return new ResponseDto<SendSingleResponse>
+                catch
                 {
-                    IsSuccess = false,
-                    StatusCode = (int)response.StatusCode,
-                    Message = response.ReasonPhrase
-                };
+                    return new ResponseDto<SendSingleResponse>
+                    {
+                        IsSuccess = false,
+                        StatusCode = (int)response.StatusCode,
+                        Message = response.ReasonPhrase
+                    };
+                }
             }
         }
 
@@ -330,13 +351,15 @@ namespace GhasedakSms.Core
                         StatusCode = result.StatusCode
                     };
                 }
-                catch { }
-                return new ResponseDto<SendBulkResponse>
+                catch
                 {
-                    IsSuccess = false,
-                    StatusCode = (int)response.StatusCode,
-                    Message = response.ReasonPhrase
-                };
+                    return new ResponseDto<SendBulkResponse>
+                    {
+                        IsSuccess = false,
+                        StatusCode = (int)response.StatusCode,
+                        Message = response.ReasonPhrase
+                    };
+                }
             }
         }
 
@@ -373,13 +396,15 @@ namespace GhasedakSms.Core
                         StatusCode = result.StatusCode
                     };
                 }
-                catch { }
-                return new ResponseDto<SendPairToPairResponse>
+                catch
                 {
-                    IsSuccess = false,
-                    StatusCode = (int)response.StatusCode,
-                    Message = response.ReasonPhrase
-                };
+                    return new ResponseDto<SendPairToPairResponse>
+                    {
+                        IsSuccess = false,
+                        StatusCode = (int)response.StatusCode,
+                        Message = response.ReasonPhrase
+                    };
+                }
             }
         }
 
@@ -416,13 +441,15 @@ namespace GhasedakSms.Core
                         StatusCode = result.StatusCode
                     };
                 }
-                catch { }
-                return new ResponseDto<SendOtpResponse>
+                catch
                 {
-                    IsSuccess = false,
-                    StatusCode = (int)response.StatusCode,
-                    Message = response.ReasonPhrase
-                };
+                    return new ResponseDto<SendOtpResponse>
+                    {
+                        IsSuccess = false,
+                        StatusCode = (int)response.StatusCode,
+                        Message = response.ReasonPhrase
+                    };
+                }
             }
         }
 
@@ -460,15 +487,16 @@ namespace GhasedakSms.Core
                         StatusCode = result.StatusCode
                     };
                 }
-                catch { }
-                return new ResponseDto<SendOtpResponse>
+                catch
                 {
-                    IsSuccess = false,
-                    StatusCode = (int)response.StatusCode,
-                    Message = response.ReasonPhrase
-                };
+                    return new ResponseDto<SendOtpResponse>
+                    {
+                        IsSuccess = false,
+                        StatusCode = (int)response.StatusCode,
+                        Message = response.ReasonPhrase
+                    };
+                }
             }
         }
     }
-
 }
