@@ -12,9 +12,7 @@ namespace GhasedakSms.Core.Dto
 
         //are these outputs considered necessary?
         public string Message { get; set; }
-        public SendStatus Status { get; set; }
         public DateTime SendDate { get; set; }
-        public string StatusDescription { get; set; }
 
     }
 

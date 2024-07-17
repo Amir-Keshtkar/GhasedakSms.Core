@@ -1,4 +1,5 @@
 ﻿using GhasedakSms.Core.Dto;
+using Microsoft.VisualBasic;
 using System;
 using System.Net;
 using System.Net.Http.Json;
@@ -156,8 +157,8 @@ namespace GhasedakSms.Core
             {
                 {"LineNumber" , query.LineNumber},
                 {"IsRead" , query.IsRead.ToString()},
-                {"StartDate" , query.StartDate.ToString()},
-                {"EndDate" , query.EndDate.ToString()},
+                {"StartDate" , query.StartDate.ToString("yyyy-MM-ddTHH:mm:ss")},
+                {"EndDate" , query.EndDate.ToString("yyyy-MM-ddTHH:mm:ss")},
                 {"PageIndex" , query.PageIndex.ToString()},
                 {"PageSize" , query.PageSize.ToString() },
             });
@@ -382,12 +383,12 @@ namespace GhasedakSms.Core
             }
         }
 
-        public async Task<ResponseDto<SendOtpResponse>> SendOtpSMSOld(SendOldOtpInput command, CancellationToken cancellationToken = default)
+        public async Task<ResponseDto<SendOtpResponse>> SendOtpWithParams(SendOldOtpInput command, CancellationToken cancellationToken = default)
         {
             HttpResponseMessage response;
             try
             {
-                response = await _client.PostAsJsonAsync($"{_url}SendOtpSMSOld", command, cancellationToken);
+                response = await _client.PostAsJsonAsync($"{_url}SendOtpWithParams", command, cancellationToken);
             }
             catch (WebException ex)
             {

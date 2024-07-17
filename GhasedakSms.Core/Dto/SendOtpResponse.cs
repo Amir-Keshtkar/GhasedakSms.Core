@@ -15,9 +15,7 @@ namespace GhasedakSms.Core.Dto
             public string Receptor { get; set; }
             public int Cost { get; set; }
             public string MessageId { get; set; }
-            public long SendDate { get; set; }
-            public SendStatus Status { get; set; }
-            public string StatusDescription { get; set; }
+            public DateTime SendDate { get; set; }
         }
     }
 

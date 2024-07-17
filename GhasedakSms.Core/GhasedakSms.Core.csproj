@@ -11,7 +11,7 @@
 
 
 	<PropertyGroup>
-		<Version>1.0.1</Version>
+		<Version>1.0.3</Version>
 		<Authors>Amir Keshtkar</Authors>
 		<Company>Ghasedak</Company>
 		<PackageProjectUrl>https://github.com/Amir-Keshtkar/GhasedakSms.Core</PackageProjectUrl>
