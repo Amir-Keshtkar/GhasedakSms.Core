@@ -8,8 +8,8 @@
     public class SendPairToPairSmsWebServiceDto
     {
         public string LineNumber { get; set; }
-        public required string Receptor { get; set; }
-        public required string Message { get; set; }
+        public string Receptor { get; set; }
+        public string Message { get; set; }
         public string ClientReferenceId { get; set; }
         public DateTime SendDate { get; set; } = DateTime.Now;
     }
